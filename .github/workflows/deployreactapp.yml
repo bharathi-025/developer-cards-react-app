@@ -8,12 +8,18 @@ jobs:
     steps: 
       - name: clone the repository
         uses: actions/checkout@v4
+
+      - name: set node options to support legacy OpenSSL
+        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
       - name: install npm packages
         run: npm install
+      
       - name: run npm
         run: npm run build
+      
       - name: test npm
         run: npm run test
+      
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
