@@ -9,8 +9,7 @@ jobs:
       - name: clone the repository
         uses: actions/checkout@v4
 
-      - name: set node options to support legacy OpenSSL
-        run: echo "NODE_OPTIONS=--openssl-legacy-provider" >> $GITHUB_ENV
+      
       - name: install npm packages
         run: npm install
       
